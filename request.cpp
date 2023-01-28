@@ -9,7 +9,7 @@ static size_t WriteMemoryCallback(void *contents, size_t sizeOfMember, size_t nu
   return realSize;
 }
 
-Request::Request(std::string url): m_url{url}, m_res{} {
+Request::Request(const std::string &url): m_url{url}, m_res{} {
   m_res.reserve(1);
 }
 
