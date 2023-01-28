@@ -1,3 +1,9 @@
+/**
+ * Header file for the Game class
+ * Author: Justin Nicolas Allard
+ * Date: Jan 27, 2023
+*/
+
 #ifndef GAME_H
 #define GAME_H
 #include <string>

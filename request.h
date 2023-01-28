@@ -1,3 +1,9 @@
+/**
+ * Header file for the Request class
+ * Author: Justin Nicolas Allard
+ * Date: Jan 27, 2023
+*/
+
 #ifndef REQUEST_H
 #define REQUEST_H
 #include <string>
@@ -9,7 +15,7 @@ class Request {
 
   public:
     Request() = delete;
-    explicit Request(const std::string&);
+    Request(const std::string&);
     ~Request() = default;
     bool execute();
     const std::string& getRes() const;

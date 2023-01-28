@@ -1,18 +1,42 @@
+/**
+ * Request class implementation
+ * Author: Justin Nicolas Allard
+ * Date: Jan 27, 2023
+*/
+
+#include <iostream>
 #include <string>
 #include <cstring>
 #include <curl/curl.h>
 #include "request.h"
 
+/**
+ * Function name: WriteMemoryCallback
+ * Description: default constructor
+ * Parameters: contents - content to add, sizeOfMember - size of one member,
+ * numMembers - number of members, mem - memory to write to 
+ * Return: real size of contents (sizeOfMember * numMembers)
+*/
 static size_t WriteMemoryCallback(void *contents, size_t sizeOfMember, size_t numMembers, void *mem) {
   size_t realSize = sizeOfMember * numMembers;
   ((std::string *)mem)->append((char *)contents, realSize);
   return realSize;
 }
 
-Request::Request(const std::string &url): m_url{url}, m_res{} {
-  m_res.reserve(1);
-}
+/**
+ * Function name: Request::Request
+ * Description: constructor
+ * Parameters: url - url to send the request to
+ * Return: none
+*/
+Request::Request(const std::string &url): m_url{url}, m_res{} {}
 
+/**
+ * Function name: Request::execute
+ * Description: executes the request
+ * Parameters: none
+ * Return: true if successful, false otherwise
+*/
 bool Request::execute() {
   CURL *curl_handle;
   CURLcode res;
@@ -39,7 +63,7 @@ bool Request::execute() {
 
   /* check for errors */
   if(res != CURLE_OK) {
-    fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+    std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << '\n';
     return false;
   }
 
@@ -52,6 +76,12 @@ bool Request::execute() {
   return true;
 }
 
+/**
+ * Function name: Request::getRes
+ * Description: getter
+ * Parameters: none
+ * Return: reference to result of request
+*/
 const std::string& Request::getRes() const {
   return m_res;
 }

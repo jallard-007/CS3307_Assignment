@@ -1,0 +1,6 @@
+Build information:
+This assignment uses curl and nlohmann-json
+
+Install these packages with your package manager
+
+Build with the provided Makefile and run with ./assignment1
