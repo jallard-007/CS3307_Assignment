@@ -12,8 +12,8 @@ int main() {
   nlohmann::json data = nlohmann::json::parse(result);
   std::vector<Game> games(data["totalGames"]);
   size_t i = 0;
-  for (auto date : data["dates"]) {
-    for (auto game : date["games"]) {
+  for (const auto &date : data["dates"]) {
+    for (const auto &game : date["games"]) {
       if (game["status"]["codedGameState"] != "7"){
         continue;
       }
@@ -30,7 +30,7 @@ int main() {
     }
   }
 
-  for (Game game : games) {
+  for (const Game &game : games) {
     if (game.isValid()) {
       game.printGame();
     }

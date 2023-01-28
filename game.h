@@ -12,12 +12,12 @@ class Game {
   public:
     Game();
     ~Game() = default;
-    void setHomeName(std::string);
-    void setAwayName(std::string);
+    void setHomeName(const std::string&);
+    void setAwayName(const std::string&);
     void setHomeScore(int);
     void setAwayScore(int);
-    void printGame();
-    bool isValid();
+    void printGame() const;
+    bool isValid() const;
 
 };
 

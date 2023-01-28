@@ -9,7 +9,7 @@ class Request {
 
   public:
     Request() = delete;
-    explicit Request(std::string);
+    explicit Request(const std::string&);
     ~Request() = default;
     bool execute();
     const std::string& getRes() const;
