@@ -25,7 +25,7 @@
 int main() {
   Request request("https://statsapi.web.nhl.com/api/v1/schedule?season=20222023&gameType=R");
   if (!request.execute()) {
-    return 0;
+    return 1;
   }
   std::string result = request.getRes();
   nlohmann::json data = nlohmann::json::parse(result);
