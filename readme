@@ -1,6 +1,13 @@
-Build information:
-This assignment uses curl and nlohmann-json
+Displays final scores for the 2022-23 NHL regular season
 
-Install these packages with your package manager
+Build information:
+Dependencies: curl and nlohmann-json
+
+Install these packages with your package manager:<br>
+\$ brew install nlohmann-json<br>
+\$ brew install curl<br>
+OR:<br>
+\$ sudo apt install nlohmann-json3-dev<br>
+\$ sudo apt install libcurl-dev
 
 Build with the provided Makefile and run with ./assignment1
